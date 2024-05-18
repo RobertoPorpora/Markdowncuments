@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg
+   width="800px"
+   height="800px"
+   viewBox="0 0 128 128"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="logo.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   inkscape:export-filename="logo.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8">
+    <rect
+       x="924.96925"
+       y="374.90775"
+       width="12.792128"
+       height="30.504305"
+       id="rect9" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.71859727"
+     inkscape:cx="492.62642"
+     inkscape:cy="386.16902"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8"
+     inkscape:export-bgcolor="#ffffffff" />
+  <title
+     id="title1">file_type_markdownlint</title>
+  <path
+     d="m 88.402912,8.0050311 c 5.033248,-0.01132 10.066496,0 15.109188,0 0.009,9.0205349 -0.009,18.0410689 0,27.0616039 5.49597,0.0451 10.99193,-0.09021 16.4879,0.06766 -7.72457,9.922582 -15.94964,19.303939 -23.995278,28.865706 C 87.959079,54.438234 79.752902,45.034326 72,35.134289 c 5.467637,-0.146583 10.935274,-0.02255 16.402912,-0.06765 0.0094,-9.020535 -0.0094,-18.041069 0,-27.0616029 z"
+     style="fill:#329632;fill-opacity:1;stroke-width:1.03189"
+     id="path2" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:63.2456px;font-family:Rubik;-inkscape-font-specification:'Rubik, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#323296;fill-opacity:1;stroke-width:5.27051"
+     x="4.2464938"
+     y="110.67965"
+     id="text8"
+     transform="scale(0.92233038,1.0842102)"><tspan
+       sodipodi:role="line"
+       id="tspan8"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:63.2456px;font-family:Rubik;-inkscape-font-specification:'Rubik, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#323296;fill-opacity:1;stroke-width:5.27051"
+       x="4.2464938"
+       y="110.67965">PDF</tspan></text>
+  <text
+     xml:space="preserve"
+     transform="scale(0.16)"
+     id="text9"
+     style="white-space:pre;shape-inside:url(#rect9);display:inline;fill:#000000" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:74.2781px;font-family:Rubik;-inkscape-font-specification:'Rubik, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#329632;fill-opacity:1;stroke-width:0.213318;stroke-dasharray:none"
+     x="3.4167938"
+     y="59.422508"
+     id="text11"
+     transform="scale(0.92847671,1.0770329)"><tspan
+       sodipodi:role="line"
+       id="tspan11"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:74.2781px;font-family:Rubik;-inkscape-font-specification:'Rubik, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#329632;fill-opacity:1;stroke-width:0.213318;stroke-dasharray:none"
+       x="3.4167938"
+       y="59.422508">M</tspan></text>
+</svg>
