@@ -44,5 +44,5 @@ shutil.copy(f"target/release/{executable_name}", output_dir)
 print(f"Copying files and directories from example/ folder to {output_dir} directory...")
 shutil.copytree("example", output_dir, dirs_exist_ok=True)
 
-# Pause to let the user review the final result
+# Inform the user that build is complete
 print("Build completed.")
