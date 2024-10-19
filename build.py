@@ -11,8 +11,8 @@ target_os = platform.system().lower()
 output_dir = f"dist/{target_os}"
 
 # Clean Cargo project
-print("Cleaning Cargo project...")
-subprocess.run(["cargo", "clean"], check=True)
+# print("Cleaning Cargo project...")
+# subprocess.run(["cargo", "clean"], check=True)
 
 # Build Cargo project in release mode
 print("Building Cargo project in release mode...")
