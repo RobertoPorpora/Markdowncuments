@@ -1,9 +1,10 @@
 [package]
 name = "markdowncuments"
-version = "1.0.1"
+version = "1.0.2"
 edition = "2021"
 
 [dependencies]
 anyhow = "1.0.81"
+chrono = "0.4.38"
 comrak = "0.23"
 headless_chrome = "1.0.9"

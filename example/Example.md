@@ -1,8 +1,9 @@
 # MarkDowncuments example
 
-|Rev    |Date       |Author     |Notes          |
-|---    |---        |---        |---            |
-|1      |2024/03/19 |R. Porpora |first release  |
+| Rev | Date       | Author     | Notes                          |
+| --- | ---------- | ---------- | ------------------------------ |
+| 1   | 2024/03/19 | R. Porpora | first release                  |
+| 2   | 2024/10/19 | R. Porpora | added diagrams + removed "***" |
 
 
 ## This is a second level title
@@ -46,9 +47,9 @@ Lists:
 You can also insert [links](https://www.example.com).
 
 
-There's a page separator (***) below this line.
+There's a page separator (<div class="page"></div>) below this line.
 
-***
+<div class="page"></div>
 
 You can insert images like this:
 
@@ -66,7 +67,7 @@ Quote:
 > This is a block quote.
 
 
-***
+<div class="page"></div>
 
 Example code:
 
@@ -81,3 +82,11 @@ Math formulas (rendered with MathJax):
 $$
 \int_{-\infty}^{\infty} e^{-x^2} \, dx = \sqrt{\pi}
 $$
+
+<div class="page"></div>
+
+puml diagrams
+
+![](diagrams/timing.puml)
+
+![](diagrams/state.puml)

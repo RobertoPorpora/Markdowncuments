@@ -4,76 +4,23 @@ use std::{
     path::PathBuf,
 };
 
-mod html_from_md;
-mod pdf_from_html;
-mod user;
-
 // -----------------------------------------------------------------------------
 
-fn parse_command_line() -> Result<user::Options, String> {
-    let mut options = user::Options::default();
-    let mut args = std::env::args().skip(1); // Skip the program name
-    let mut folder_provided = false;
-
-    while let Some(arg) = args.next() {
-        match arg.as_str() {
-            "-f" | "--full" => options.full = true,
-            "-t" | "--html" => options.html = true,
-            "-x" | "--no-pdf" => options.pdf = false,
-            "-h" | "--help" => {
-                options.help = true;
-            }
-            _ => {
-                if !arg.starts_with('-') {
-                    options.folder = PathBuf::from(arg);
-                    folder_provided = true;
-                } else {
-                    return Err(format!("Unknown option: {}", arg));
-                }
-            }
-        }
-    }
-
-    // Set the folder to the current working directory if not provided
-    if !folder_provided {
-        options.folder = match std::env::current_dir() {
-            Ok(p) => p,
-            Err(e) => {
-                return Err(format!("Error while trying to resolve cwd: {}", e));
-            }
-        };
-    }
-
-    Ok(options)
-}
-
-fn print_help() {
-    println!(
-        "\
-Usage: markdowncuments [folder] [options]
-
-Options:
-    -f, --full               Use full template with header and footer
-    -t, --html               Output in HTML format also
-    -x, --no-pdf             Disable PDF output
-    -h, --help               Display this help message"
-    );
-}
+mod command_line;
+mod file_explorer;
+mod html_from_md;
+mod pdf_from_html;
 
 // -----------------------------------------------------------------------------
 
 fn main() -> Result<(), i32> {
-    const SEPARATOR: &str = "";
-
-    println!("{}", SEPARATOR);
-
+    println!("");
     let version = env!("CARGO_PKG_VERSION");
     println!("Markdowncuments version {}", version);
+    println!("");
 
-    println!("{}", SEPARATOR);
-
-    let user = match parse_command_line() {
-        Ok(uo) => uo,
+    let user_request = match command_line::parse() {
+        Ok(ur) => ur,
         Err(e) => {
             eprintln!("Error while parsing command line: {}", e);
             eprintln!("Consider using \"markdowncuments --help\".");
@@ -81,36 +28,46 @@ fn main() -> Result<(), i32> {
         }
     };
 
-    if user.help {
-        print_help();
+    if user_request.help {
+        command_line::print_help();
         return Ok(());
     }
 
-    println!("User input = {:?}", user);
+    if user_request.tricks {
+        command_line::print_tricks();
+        return Ok(());
+    }
 
-    // read all files in the current directory with extension "md"
-    let md_files: Vec<_> = match std::fs::read_dir(&user.folder) {
-        Ok(rd) => rd,
-        Err(e) => {
-            eprintln!("Error while reading the directory: {}", e);
-            return Err(1);
+    if user_request.version {
+        return Ok(());
+    }
+
+    println!("User request = {:#?}", user_request);
+    println!("");
+
+    let puml_files = file_explorer::find_all("puml", &user_request.folder, true);
+
+    for puml_file in puml_files {
+        println!("Found .puml file: {:?}", puml_file);
+
+        match std::process::Command::new("plantuml")
+            .arg(puml_file)
+            .status()
+        {
+            Ok(_) => {
+                println!("SVG file created.");
+            }
+            Err(e) => {
+                eprintln!("Error: {}", e);
+            }
         }
     }
-    .filter_map(|entry| {
-        entry.ok().and_then(|e| {
-            e.path()
-                .extension()
-                .and_then(|ext| if ext == "md" { Some(e.path()) } else { None })
-        })
-    })
-    .collect();
 
-    // loop over each .md file
+    let md_files = file_explorer::find_all("md", &user_request.folder, true);
+
     for md_file in md_files {
-        println!("{}", SEPARATOR);
         println!("Found .md file: {:?}", md_file);
 
-        // read the content of the file
         let mut file = match File::open(&md_file) {
             Ok(f) => f,
             Err(e) => {
@@ -151,15 +108,17 @@ fn main() -> Result<(), i32> {
         }
         drop(html_file); // close the file
 
+        println!("HTML file created.");
+
         // convert the html file
-        if user.pdf {
-            match pdf_from_html::convert_and_write(&html_file_path, &user) {
+        if user_request.pdf {
+            match pdf_from_html::convert_and_write(&html_file_path, &user_request) {
                 Ok(_) => println!("PDF file created."),
                 Err(e) => eprintln!("Error while creating PDF file: {}", e),
             }
         }
 
-        if !user.html {
+        if !user_request.html {
             match std::fs::remove_file(&html_file_path) {
                 Ok(_) => println!("HTML file removed."),
                 Err(e) => eprintln!("Error while removing HTML file: {}", e),
@@ -169,8 +128,6 @@ fn main() -> Result<(), i32> {
 
     Ok(())
 }
-
-//------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
 

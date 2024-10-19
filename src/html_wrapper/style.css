@@ -13,8 +13,14 @@ h6 {
     color: darkblue;
 }
 
-hr {
-    page-break-after: always;
+p:has(+ ul),
+p:has(+ ol) {
+    margin-bottom: 0;
+}
+
+p+ul,
+p+ol {
+    margin-top: 0;
 }
 
 /* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */

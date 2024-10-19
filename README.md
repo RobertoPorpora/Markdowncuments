@@ -64,11 +64,8 @@ The system using MarkDowncuments must have **Google Chrome** or **Chromium** ins
 
 - [ ] Options for header title and date
 - [ ] Options for footer page numbering
-- [ ] Output selectable between 'html', 'pdf' (should be default) or 'both' with CLI arg. Now it always creates both.
 - [ ] Fix error handling, notifying the user either with an action to take or providing a message that helps understand where and why the error occurred.
 - [ ] Remove dependency on the Chromium browser.
-- [ ] System-wide installer: type "markdowncuments" in the terminal to execute it in the current working directory.
-- [ ] Graphical interface version: opens a file browser to select what to convert.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
