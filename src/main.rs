@@ -17,7 +17,6 @@ fn main() -> Result<(), i32> {
     println!("");
     let version = env!("CARGO_PKG_VERSION");
     println!("Markdowncuments version {}", version);
-    println!("");
 
     let user_request = match command_line::parse() {
         Ok(ur) => ur,
@@ -42,8 +41,8 @@ fn main() -> Result<(), i32> {
         return Ok(());
     }
 
-    println!("User request = {:#?}", user_request);
     println!("");
+    println!("User request = {:#?}", user_request);
 
     let puml_files = file_explorer::find_all("puml", &user_request.folder, true);
 
@@ -66,6 +65,7 @@ fn main() -> Result<(), i32> {
     let md_files = file_explorer::find_all("md", &user_request.folder, true);
 
     for md_file in md_files {
+        println!("");
         println!("Found .md file: {:?}", md_file);
 
         let mut file = match File::open(&md_file) {
@@ -100,7 +100,7 @@ fn main() -> Result<(), i32> {
             }
         };
         match html_file.write_all(html_content.as_bytes()) {
-            Ok(_) => println!("HTML file created."),
+            Ok(_) => {}
             Err(e) => {
                 eprintln!("Error while writing HTML file: {}", e);
                 continue;

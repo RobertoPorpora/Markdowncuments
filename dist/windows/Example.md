@@ -1,9 +1,10 @@
 # MarkDowncuments example
 
-| Rev | Date       | Author     | Notes                          |
-| --- | ---------- | ---------- | ------------------------------ |
-| 1   | 2024/03/19 | R. Porpora | first release                  |
-| 2   | 2024/10/19 | R. Porpora | added diagrams + removed "***" |
+| Rev | Date       | Author     | Notes                                      |
+| --- | ---------- | ---------- | ------------------------------             |
+| 1   | 2024/03/19 | R. Porpora | first release                              |
+| 2   | 2024/10/19 | R. Porpora | added diagrams + removed "***"             |
+| 3   | 2024/12/20 | R. Porpora | added code, fixed diagrams and page breaks |
 
 
 ## This is a second level title
@@ -47,7 +48,7 @@ Lists:
 You can also insert [links](https://www.example.com).
 
 
-There's a page separator (<div class="page"></div>) below this line.
+There's a page separator (`<div class="page"></div>`) below this line.
 
 <div class="page"></div>
 
@@ -69,13 +70,6 @@ Quote:
 
 <div class="page"></div>
 
-Example code:
-
-```rust
-fn main() {
-    println!("Hello, world!");
-}
-```
 
 Math formulas (rendered with MathJax):
 
@@ -83,10 +77,85 @@ $$
 \int_{-\infty}^{\infty} e^{-x^2} \, dx = \sqrt{\pi}
 $$
 
+Code (rendered with highlight.js):
+
+```rust
+// Rust: A simple program
+fn main() {
+    println!("Hello, world!");
+}
+```
+
+```python
+# Python: A simple program
+def main():
+    print("Hello, world!")
+
+if __name__ == "__main__":
+    main()
+```
+
+```javascript
+// JavaScript: A simple program
+function main() {
+    console.log("Hello, world!");
+}
+
+main();
+```
+
+```java
+// Java: A simple program
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, world!");
+    }
+}
+```
+
+```c
+// C: A simple program
+#include <stdio.h>
+
+int main() {
+    printf("Hello, world!\n");
+    return 0;
+}
+```
+
+```bash
+# Bash: A simple script
+echo "Hello, world!"
+```
+
+```go
+// Go: A simple program
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, world!")
+}
+```
+
+```html
+<!-- HTML: A simple webpage -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello, world!</title>
+</head>
+<body>
+    <h1>Hello, world!</h1>
+</body>
+</html>
+```
+
 <div class="page"></div>
 
 puml diagrams
 
-![](diagrams/timing.puml)
+![](diagrams/timing.svg)
 
-![](diagrams/state.puml)
+![](diagrams/state.svg)

@@ -81,7 +81,7 @@ Usage: markdowncuments [folder] [options]
 Options:
     -t, --title          Add title in header
     -d, --date           Add date in header
-    -d, --date           Add page numbering in footer
+    -n, --numbering      Add page numbering in footer
     -f, --full           Add title, date and numbering in header and footer
     -n, --numbering      Use full template with header and footer
     -m, --html           Output in HTML format also

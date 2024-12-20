@@ -12,6 +12,10 @@ pub fn convert(title: &str, content: String) -> String {
     let mut output = include_str!("html_wrapper/wrapper.html").to_string();
     output = output.replace("/*TITLE*/", &title);
     output = output.replace("/*STYLE*/", include_str!("html_wrapper/style.css"));
+    output = output.replace(
+        "/*HIGHLIGHTJS*/",
+        include_str!("html_wrapper/highlightjs.html"),
+    );
     output = output.replace("/*BODY*/", &md_to_html);
 
     output
